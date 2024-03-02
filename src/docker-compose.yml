@@ -1,0 +1,28 @@
+services:
+  nginx:
+    build: requirements/nginx/
+    container_name: nginx
+    restart: always
+    volumes:
+      -~/data/wordpress:/var/www/html/
+    networks:
+      - networks1
+  mariadb:
+    build: requirements/mariadb/
+    container_name: maria
+    restart: always
+    volumes:
+      -~/data/database:/var/lib/mysql
+    networks:
+      - networks1
+  wordpress:
+    build: requirements/wordpress/
+    container_name: wordpress
+    restart: always
+    volumes:
+      -~/data/wordpress:/var/www/html/
+    networks:
+      - networks1
+networks:
+  networks1:
+    driver: bridge
