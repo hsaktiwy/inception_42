@@ -23,7 +23,7 @@ services:
     env_file: 
       - .env
     container_name: maria
-    restart: unless-stopped
+    restart: on-failure
     volumes:
       - mariadb:/var/lib/mysql
     networks:
