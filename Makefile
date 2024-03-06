@@ -1,8 +1,9 @@
 CMD=docker-compose
 SRC= -f srcs/docker-compose.yml
-VOLUMES= ~/data/wordpress ~/data/mariadb
-VOLUMES1= ~/data/wordpress
-VOLUMES2= ~/data/mariadb
+HOME = /home/hsaktiwy
+VOLUMES= $(HOME)/data/wordpress $(HOME)/data/mariadb
+VOLUMES1= $(HOME)/data/wordpress
+VOLUMES2= $(HOME)/data/mariadb
 GREEN = \033[0;32m
 RED = \033[0;31m
 YELLOW = \033[0;33m
@@ -25,7 +26,7 @@ run: clear_volumes
 	@mkdir -p $(VOLUMES1)
 	@mkdir -p $(VOLUMES2)
 	@echo "$(GREEN)Runing ...$(NC)";
-	@$(CMD) $(SRC) up
+	@$(CMD) $(SRC) up -d
 	@echo "$(YELLOW)Runing Finished!$(NC)";
 
 stop:
