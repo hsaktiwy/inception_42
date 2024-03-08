@@ -19,14 +19,14 @@ build: clear_volumes
 	@mkdir -p $(VOLUMES1)
 	@mkdir -p $(VOLUMES2)
 	@echo "$(GREEN)Building ...$(NC)";
-	@$(CMD) $(SRC) build --no-cache
+	@$(CMD) $(SRC) build
 	@echo "$(YELLOW)Building finished!$(NC)";
 
 run: clear_volumes
 	@mkdir -p $(VOLUMES1)
 	@mkdir -p $(VOLUMES2)
 	@echo "$(GREEN)Runing ...$(NC)";
-	@$(CMD) $(SRC) up -d
+	@$(CMD) $(SRC) up -d --build
 	@echo "$(YELLOW)Runing Finished!$(NC)";
 
 stop:
