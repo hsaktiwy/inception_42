@@ -1,0 +1,1 @@
+sed -i "s/listen=NO/listen=YES/g" /etc/vsftpd.conf
