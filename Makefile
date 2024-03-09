@@ -25,7 +25,7 @@ run: clear_volumes
 	@mkdir -p $(VOLUMES1)
 	@mkdir -p $(VOLUMES2)
 	@echo "$(GREEN)Runing ...$(NC)";
-	@$(CMD) $(SRC) up -d --build
+	@$(CMD) $(SRC) up --build
 	@echo "$(YELLOW)Runing Finished!$(NC)";
 
 stop:
