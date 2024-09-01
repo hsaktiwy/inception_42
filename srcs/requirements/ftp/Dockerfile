@@ -4,4 +4,4 @@ RUN apt-get install vsftpd -y
 
 COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 COPY ./tools/script.sh ./script.sh
-CMD [ "./script" ]
+CMD [ "./script.sh" ]
