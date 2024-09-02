@@ -1,11 +1,14 @@
 # create the adminer index.php folder
-mkdir /var/www/html/adminer
+mkdir /var/www/adminer
 # install adminer
-cd  /var/www/html/adminer
+cd  /var/www/adminer
 wget -O index.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 # gave the apache permission on our folder
-chmod 744 /var/www/html/adminer
+chown www-data:www-data /var/www/adminer
+chmod 744 /var/www/adminer
 # enable adminer site
-sudo a2ensite adminer.conf
+a2ensite adminer.conf
+# desable the deafault apache2 site
+a2dissite 000-default.conf
 
-# apache -D FOREGROUND
+apachectl -D FOREGROUND

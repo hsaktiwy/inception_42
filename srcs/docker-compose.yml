@@ -96,11 +96,23 @@ services:
       - JhinNet
     ports:
       - "80:80"
-    expose:
-      - "80"
     depends_on:
       - wordpress
-  
+  cadvisor:
+    image: cadviser:jhin
+    build:
+      context: requirements/cadviser
+      dockerfile: Dockerfile
+    container_name: cadvisor
+    # check if it can work with docker only
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "8080:8080"
+    restart: on-failure
 networks:
   JhinNet:
     driver: bridge
