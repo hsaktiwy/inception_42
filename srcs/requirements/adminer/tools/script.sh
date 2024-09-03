@@ -11,4 +11,4 @@ a2ensite adminer.conf
 # desable the deafault apache2 site
 a2dissite 000-default.conf
 
-apachectl -D FOREGROUND
+exec apachectl -D FOREGROUND
