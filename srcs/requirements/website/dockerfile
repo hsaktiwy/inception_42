@@ -1,0 +1,5 @@
+FROM debian:latest
+
+RUN apt update
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

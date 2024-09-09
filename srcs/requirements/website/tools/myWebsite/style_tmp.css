@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+.navbar{
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.3rem;
+    width: 99.3vw;
+    position: fixed;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.navbar a:hover{
+    color: cyan;
+}
+
+.info_container{
+    min-height: 100vh;
+    padding: 2rem 0 0;
+}
+
+.text{
+    font-size: 1.2rem;
+    text-align:start;
+    padding: 0 2rem;
+}
+
+.holder{
+    border: 2px solid #333;
+    border-radius: 25px;
+    padding:0.5rem;
+    margin: 0 0.5rem;
+
+}
+.red{
+    background-color: whitesmoke;
+}
+
+.green{
+    background-color: #FFC300;
+}
+
+.blue{
+    background-color: #28B463;
+}
+
+.gray{
+    background-color: #3498DB;
+}
+
+.yellow{
+    background-color: #9B59B6;
+}
+
+.purple{
+    background-color: #E74C3C;
+}
+
+.orange{
+    background-color: #F39C12;
+}
