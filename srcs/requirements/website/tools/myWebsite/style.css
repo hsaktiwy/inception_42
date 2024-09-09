@@ -1,63 +1,172 @@
-body{
-    margin: 0;
-    padding: 0;
-    overflow-y: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Fira Sans', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
-
-.navbar{
-    background-color: #333;
+.body_head
+{
+    /*you don't need to define the height: 50px;*/
+    width: 100%;
+    background-color: #DA3330;
+    z-index: 999;/*help to fix smoothly the header in the top with out leting anything intefer with it */
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px 15%;/*200px in the cours but 20% is better to made it smart for the sizing */
+}
+.body_head .logo{
+    display:inline;
+    font-weight:bold;
+    font-size: 150%;
+    text-decoration:none;
+    color: #F9C73F;
+    text-transform: uppercase;
+}
+.body_head nav{
+    display:inline-block;
+}
+.body_head nav a
+{   
+    text-decoration: none;
+    font-weight: 500;
+    color: #453636;
+    font-size: 1.1em;
+    padding-left:10px;
+}
+.body_head nav a:hover{
+    color: blueviolet;
+}
+section{
+    padding:100px 200px;
+}
+.main{
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0.3rem;
-    width: 99.3vw;
-    position: fixed;
+    background-image: url("images/BG_jhin.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
-
-.navbar a{
-    color: white;
+.main h2{
+    color:#453636;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+.main h2 span{
+    color:#F9C73F;
+    font-size:2em;
+    font-weight: 700;
+}
+.main h3{
+    color:aqua;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+.main .main_bouton{
+    color: aliceblue;
+    background-color: darkred;
     text-decoration: none;
-    padding: 0.5rem;
+    font-size: 1.3em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.4s ease;
 }
-
-.Container
-{
+.main .main_bouton:hover{
+    background-color: blue;
+    transform: scale(1.1);
+    margin-top:3px;
+}
+.main img:hover{
+    transform: scale(1.1);
+    margin-right: 4px;
+}
+#title{
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(1, 10, 19, .9);
-    color: #f0e6d2;
+    font-weight: 800;
+    font-size:150%;
+    margin-bottom:40px;
 }
-
-.holder{
-    border: 2px solid gold;
-    border-radius: 25px;
-    padding:0.5rem;
-    margin: 0 0.5rem;
-    overflow-y: auto;
+#favoris{
+    padding: 150px;
 }
-
-.storyMode{
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(1, 10, 19, .9);
-    overflow-y: auto;
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-
-.storyHolder{
-    border-radius: 25px;
-    padding:0.5rem;
-    margin: 0 0.5rem;
-    overflow-y: auto;
+.card{
+    background-color: #fff;
+    width: 20em;
+    box-shadow: 0 5px 25px rgba(1,1,1, 30%);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    transition: 0.4s ease;
 }
-
-.holder p{
-    font-size: 1.3rem;
+.card:hover{
+    transform:scale(1.1);
+}
+section  #title{
     text-align: center;
+    color:darkblue;
+}
+.card_top img{
+    max-width:100%;
+}
+.info{
+    font-size: 1.1em;
+}
+#collection{
+    margin: 0 0px;
+    background-color: #9e19c7;
+}
+#collection .content{
+    margin-top: 30px;
+}
+.collecteurs{
+    background-color: #fff;
+    border: 1px solid rgb(115, 31, 250);
+    width: 275px;
+    min-height: 14em;
+    overflow: hidden;
+    transition: 0.4s ease;
+    margin-left: 13px;
+    margin-bottom: 14px;
+    border-radius: 25px;
+}
+.collecteur-image img{
+    width:100%;
 }
 
-.orange{
-    /* background-image: linear-gradient(315deg, orange 10%, #f5f5f5 85%); */
+.collecteur-info{
+    padding: 10px;
+}
+.collecteur-info a{
+    text-decoration: none;
+    
+}
+.collecteur-info a:hover{
+    color: #9e19c7;
+}
+.collecteurs:hover{
+    transform: scale(1.1);
+}
+.collecteurs:hover .collecteur-image{
+    opacity: 0.9;
+}
+footer{
+    background-color: aliceblue;
+    color:#4b4c4d;
 }

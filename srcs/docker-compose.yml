@@ -78,7 +78,6 @@ services:
       - JhinNet
     ports:
       - "21:21"
-      - "40000-40100:40000-40100"
     volumes:
       - wordpress:/ftp/hosting/
     depends_on:
@@ -95,7 +94,7 @@ services:
     networks:
       - JhinNet
     ports:
-      - "80:80"
+      - "8000:8000"
     depends_on:
       - wordpress
   cadvisor:
