@@ -9,9 +9,9 @@
     # configurate our wordpress wp-config
             # gave our wp-cli.phar execute rigths
                 chmod +x wp-cli.phar
-            # trow here to our usr/local/bin with new name wp
+            # let move the wp-cli.phar to our usr/local/bin with new name like wp
                 mv wp-cli.phar /usr/local/bin/wp
-# lets access it location /var/www/wordpress
+# lets access the location /var/www/wordpress
     cd /var/www/wordpress
 # install our wordpress core in /var/www/wordpress (we will add --allow-rrot flag in all our wp command flag to make the command run with root )
     wp --allow-root core download
@@ -20,7 +20,7 @@
 # create a our user admin (OUR FIRST USER EVER)
     wp --allow-root core install --url=$WP_URL --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
 # create a our second user
-    wp --allow-root user create hamza hsaktiwy-sak@hotmail.com --role=$WP_USER_ROLE --user_pass=$WP_USER_PASSWORD
+    wp --allow-root user create $WP_USER_NAME $WP_USER_EMAIL --role=$WP_USER_ROLE --user_pass=$WP_USER_PASSWORD
 # we will modife the wp-confige to sweet our redis we need to identife the redis host port and connection type tcp in this case
     wp --allow-root config set WP_REDIS_HOST 'redis' --type=constant
     wp --allow-root config set WP_REDIS_PORT 6379 --type=constant

@@ -105,10 +105,14 @@ services:
     container_name: cadvisor
     # check if it can work with docker only
     volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
+      # - /:/rootfs:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # - /sys:/sys:ro
+      # - /var/lib/docker/:/var/lib/docker:ro
+      # - /:/rootfs:ro
+      # - /var/run:/var/run:ro
+      # - /sys:/sys:ro
+      # - /var/lib/docker/:/var/lib/docker:ro
     ports:
       - "8080:8080"
     restart: on-failure

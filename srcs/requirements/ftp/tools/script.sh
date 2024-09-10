@@ -2,8 +2,8 @@
 
 # creat our hosting folder
 mkdir -p $FTP_ROOT
-# lets creat our ftp user
-    # creat our user with no password
+# lets create our ftp user
+    # create our user with no password
         adduser --disabled-password --gecos "" "$FTP_USER"
     # gave our user a chpasswd
         echo "$FTP_USER:$FTP_USER_PASS" | chpasswd
@@ -12,7 +12,7 @@ mkdir -p $FTP_ROOT
 # let add our user to our ftp userlist file :vsftpd.userlist (tee -a : will added and append the echo value to our userlist file)
     echo "$FTP_USER" | tee -a /etc/vsftpd.userlist
 
-    # added the user of ftp to the ww-dat groupd allowing him to have the privilege to edit/create a file in the hosted folder
+    # added the user of ftp to the www-data groupd allowing him to have the privilege to edit/create a file in the hosted folder
     usermod -aG www-data $FTP_USER
     # i notice that the www-data gourp permission on the hosted file are only read and execute so let add write
     chmod 775 $FTP_ROOT
