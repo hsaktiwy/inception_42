@@ -21,9 +21,7 @@ build: clear_volumes
 	@$(CMD) $(SRC) build
 	@echo "$(YELLOW)Building finished!$(NC)";
 
-run: clear_volumes
-	@mkdir -p $(VOLUMES1)
-	@mkdir -p $(VOLUMES2)
+run:
 	@echo "$(GREEN)Runing ...$(NC)";
 	@$(CMD) $(SRC) up --build
 	@echo "$(YELLOW)Runing Finished!$(NC)";

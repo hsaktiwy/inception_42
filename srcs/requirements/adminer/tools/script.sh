@@ -1,3 +1,4 @@
+#!/bin/bash
 # create the adminer index.php folder
 mkdir /var/www/adminer
 # install adminer

@@ -78,6 +78,7 @@ services:
       - JhinNet
     ports:
       - "21:21"
+      - "40000-40100:40000-40100"
     volumes:
       - wordpress:/ftp/hosting/
     depends_on:
@@ -94,7 +95,7 @@ services:
     networks:
       - JhinNet
     ports:
-      - "8000:8000"
+      - "80:80"
     depends_on:
       - wordpress
   cadvisor:
@@ -105,10 +106,10 @@ services:
     container_name: cadvisor
     # check if it can work with docker only
     volumes:
-      # - /:/rootfs:ro
+      - /:/rootfs:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      # - /sys:/sys:ro
-      # - /var/lib/docker/:/var/lib/docker:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
       # - /:/rootfs:ro
       # - /var/run:/var/run:ro
       # - /sys:/sys:ro
