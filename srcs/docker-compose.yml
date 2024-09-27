@@ -95,9 +95,22 @@ services:
     networks:
       - JhinNet
     ports:
-      - "80:80"
+      - "81:81"
     depends_on:
       - wordpress
+  website:
+    image: website:jhin
+    build:
+      context: requirements/bonus/website
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    container_name: website
+    restart: on-failure
+    networks:
+      - JhinNet
+    ports:
+      - "80:80"
   cadvisor:
     image: cadviser:jhin
     build:

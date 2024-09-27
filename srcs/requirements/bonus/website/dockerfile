@@ -1,8 +1,0 @@
-FROM debian:latest
-
-RUN apt update
-RUN apt install nginx
-
-COPY tools/ /var/www/html
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
