@@ -53,7 +53,7 @@ services:
   redis:
     image:  redis:jhin
     build: 
-      context: requirements/redis
+      context: requirements/bonus/redis
       dockerfile: Dockerfile
     env_file:
       - .env
@@ -68,7 +68,7 @@ services:
   ftp:
     image: ftp:jhin
     build:
-      context: requirements/ftp
+      context: requirements/bonus/ftp
       dockerfile: Dockerfile
     env_file:
       - .env
@@ -86,7 +86,7 @@ services:
   adminer:
     image: adminer:jhin
     build:
-      context: requirements/adminer
+      context: requirements/bonus/adminer
       dockerfile: Dockerfile
     env_file:
       - .env
@@ -101,7 +101,7 @@ services:
   cadvisor:
     image: cadviser:jhin
     build:
-      context: requirements/cadviser
+      context: requirements/bonus/cadviser
       dockerfile: Dockerfile
     container_name: cadvisor
     # check if it can work with docker only
@@ -110,10 +110,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
-      # - /:/rootfs:ro
-      # - /var/run:/var/run:ro
-      # - /sys:/sys:ro
-      # - /var/lib/docker/:/var/lib/docker:ro
+      - /var/run:/var/run:ro
     ports:
       - "8080:8080"
     restart: on-failure
