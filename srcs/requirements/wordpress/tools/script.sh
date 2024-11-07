@@ -21,6 +21,8 @@
     wp --allow-root core install --url=$WP_URL --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
 # create a our second user
     wp --allow-root user create $WP_USER_NAME $WP_USER_EMAIL --role=$WP_USER_ROLE --user_pass=$WP_USER_PASSWORD
+
+# for bonus part
 # we will modife the wp-confige to sweet our redis we need to identife the redis host port and connection type tcp in this case
     wp --allow-root config set WP_REDIS_HOST 'redis' --type=constant
     wp --allow-root config set WP_REDIS_PORT 6379 --type=constant
@@ -34,7 +36,6 @@
 # configurate our www.conf
     # change the listen value to be able to receive it requests from wordpress one port 9000  
         sed -i "s#listen = /run/php/php7.4-fpm.sock#listen=wordpress:9000#" /etc/php/7.4/fpm/pool.d/www.conf
-    # this will not gave the php-fpm to clear the envirement variables, (as it was used to Prevents arbitrary environment variables from reaching FPM worker processes)
 # stop our php7.4fpm service to run  php-fpm7.4 -F
     service php7.4-fpm stop
 # run our php service in the forground
