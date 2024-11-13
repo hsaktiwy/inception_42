@@ -35,6 +35,7 @@ clear:
 	@echo "$(GREEN)clearing Containers, Images, docker Volumes, Networks ...$(NC)";
 	@$(CMD) $(SRC) down -v --rmi all --remove-orphans
 	@echo "$(YELLOW)clearing finished!$(NC)";
+
 clear_volumes:
 	@echo "$(GREEN)Volumes ($(VOLUMES:' '=,)) clearing ...$(NC)";
 	@rm -rf $(VOLUMES1) $(VOLUMES2)
@@ -42,7 +43,9 @@ clear_volumes:
 
 message:
 	@echo "$(RED)Fully Clearing ...$(NC)";
+
 fclear: message clear clear_volumes
 	@echo "$(MAGENTA)Fully Cleared!$(NC)";
+	@sudo docker system prune -af
 
 .PHONY: clear stop build run all fclear clear_volumes

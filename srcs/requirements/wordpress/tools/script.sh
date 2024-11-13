@@ -16,8 +16,15 @@
     cd /var/www/wordpress
 # install our wordpress core in /var/www/wordpress (we will add --allow-rrot flag in all our wp command flag to make the command run with root )
     wp --allow-root core download
+
+# wait for mariadb to be properly ready
+    while ! nc -z -w2 mariadb 3306; do
+        echo "waiting for mariadb to be properly running\n"
+        sleep 2
+    done
+
 # create our wp-config file
-    wp config create  --allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD --dbhost=mariadb:3306 --path='/var/www/wordpress'
+    wp config create  --allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD --dbhost=mariadb:3306
 # create a our user admin (OUR FIRST USER EVER)
     wp --allow-root core install --url=$WP_URL --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
 # create a our second user
