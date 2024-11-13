@@ -2,6 +2,7 @@
 
 # start our php7.4fpm service
     service php7.4-fpm start
+
 # lets create a wordpress forlder /var/www/wordpress and access it location
     mkdir -p /var/www/wordpress
 # download the wp(CLI) this will make our wordpress installation and configuration as easy as possible

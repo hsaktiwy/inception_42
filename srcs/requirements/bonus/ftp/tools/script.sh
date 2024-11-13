@@ -15,7 +15,7 @@ mkdir -p $FTP_ROOT
     # added the user of ftp to the www-data groupd allowing him to have the privilege to edit/create a file in the hosted folder
     usermod -aG www-data $FTP_USER
     # i notice that the www-data gourp permission on the hosted file are only read and execute so let add write
-    chmod 775 $FTP_ROOT
+    chmod -R 777 $FTP_ROOT
     # and like this we allowed our ftp user to access ftp hosted folder properly (i think hahaha! or maybe not?)
 
 # added the local_root=$FTP_ROOT to the vsftpd.conf at the end of the configuration
