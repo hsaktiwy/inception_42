@@ -29,8 +29,6 @@ services:
       - mariadb:/var/lib/mysql
     networks:
       - JhinNet
-    expose:
-      - "3306"
   wordpress:
     image: wordpress:jhin
     build: 
@@ -47,8 +45,6 @@ services:
       - wordpress:/var/www/wordpress/
     networks:
       - JhinNet
-    expose:
-      - "9000"
   redis:
     image:  redis:jhin
     build: 
