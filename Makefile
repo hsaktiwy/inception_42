@@ -1,4 +1,4 @@
-CMD=docker-compose
+CMD=docker compose
 SRC= -f srcs/docker-compose.yml
 VOLUMES= /home/hsaktiwy/data/wordpress /home/hsaktiwy/data/mariadb
 VOLUMES1= /home/hsaktiwy/data/wordpress
@@ -33,8 +33,8 @@ stop:
 
 clear: stop
 	@echo "$(GREEN)clearing Containers, Images, docker Volumes, Networks ...$(NC)";
-	@sudo docker system prune -af
-	@sudo docker volume prune -f
+	@docker system prune -af
+	@docker volume prune -f
 	@echo "$(YELLOW)clearing finished!$(NC)";
 
 clear_volumes:

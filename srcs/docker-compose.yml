@@ -7,11 +7,9 @@ services:
     env_file:
         - .env
     container_name: nginx
-    restart: on-failure
+    restart: always
     volumes:
       - wordpress:/var/www/wordpress/
-    depends_on:
-      - wordpress
     ports:
       - "443:443"
     networks:
@@ -24,7 +22,7 @@ services:
     env_file: 
       - .env
     container_name: mariadb
-    restart: on-failure
+    restart: always
     volumes:
       - mariadb:/var/lib/mysql
     networks:
@@ -37,7 +35,7 @@ services:
     env_file: 
       - .env
     container_name: wordpress
-    restart: on-failure
+    restart: always
     depends_on:
       - mariadb
       - redis
@@ -53,11 +51,9 @@ services:
     env_file:
       - .env
     container_name: redis
-    restart: on-failure
+    restart: always
     networks:
       - JhinNet
-    ports:
-      - "6379:6379"
   ftp:
     image: ftp:jhin
     build:
@@ -66,7 +62,7 @@ services:
     env_file:
       - .env
     container_name: ftp
-    restart: on-failure
+    restart: always
     networks:
       - JhinNet
     ports:
@@ -74,8 +70,6 @@ services:
       - "40000-40100:40000-40100"
     volumes:
       - wordpress:/ftp/hosting/
-    depends_on:
-      - wordpress
   adminer:
     image: adminer:jhin
     build:
@@ -84,7 +78,7 @@ services:
     env_file:
       - .env
     container_name: adminer
-    restart: on-failure
+    restart: always
     networks:
       - JhinNet
     ports:
@@ -99,7 +93,7 @@ services:
     env_file:
       - .env
     container_name: website
-    restart: on-failure
+    restart: always
     networks:
       - JhinNet
     ports:
@@ -110,16 +104,14 @@ services:
       context: requirements/bonus/cadviser
       dockerfile: Dockerfile
     container_name: cadvisor
-    # check if it can work with docker only
     volumes:
       - /:/rootfs:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
       - /var/run:/var/run:ro
     ports:
       - "8080:8080"
-    restart: on-failure
+    restart: always
 networks:
   JhinNet:
     driver: bridge

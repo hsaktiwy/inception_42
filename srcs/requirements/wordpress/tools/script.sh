@@ -34,6 +34,6 @@
     sed -i "s#listen = /run/php/php7.4-fpm.sock#listen=wordpress:9000#" /etc/php/7.4/fpm/pool.d/www.conf
 
 # additional details
-    mkdir /run/php
     chown -R www-data:www-data /var/www/wordpress
+    mkdir /run/php
 php-fpm7.4 -F
