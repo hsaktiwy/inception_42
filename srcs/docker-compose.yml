@@ -54,22 +54,6 @@ services:
     restart: always
     networks:
       - JhinNet
-  ftp:
-    image: ftp:jhin
-    build:
-      context: requirements/bonus/ftp
-      dockerfile: Dockerfile
-    env_file:
-      - .env
-    container_name: ftp
-    restart: always
-    networks:
-      - JhinNet
-    ports:
-      - "21:21"
-      - "40000-40100:40000-40100"
-    volumes:
-      - wordpress:/ftp/hosting/
   adminer:
     image: adminer:jhin
     build:

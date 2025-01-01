@@ -23,7 +23,7 @@ build: clear_volumes
 
 run:
 	@echo "$(GREEN)Runing ...$(NC)";
-	@$(CMD) $(SRC) up -d --build
+	@$(CMD) $(SRC) up -d
 	@echo "$(YELLOW)Runing Finished!$(NC)";
 
 stop:

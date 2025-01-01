@@ -3,4 +3,5 @@ RUN apt-get update
 RUN apt-get install curl wget netcat -y
 RUN apt-get install php7.4-fpm php-mysql -y
 COPY ./tools/script.sh .
+RUN chmod +x script.sh
 ENTRYPOINT ["./script.sh"]
